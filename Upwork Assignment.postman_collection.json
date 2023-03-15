@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "96a8307d-7903-400f-8f38-2d8ecdfb4232",
+		"name": "Upwork Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create new range rule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sourceStartIp\": \"\",\r\n  \"sourceEndIp\": \"\",\r\n  \"sourceSubnetIp\": \"192.10.10.10/32\",\r\n  \"destinationStartIp\": \"\",\r\n  \"destinationEndIp\": \"\",\r\n  \"destinationSubnetIp\": \"192.10.10.10/32\",\r\n  \"allow\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/ip-filter-rules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ip-filter-rules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new submask rule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sourceSubnetIp\": \"192.10.10.10/32\",\r\n  \"destinationSubnetIp\": \"192.10.10.10/32\",\r\n  \"allow\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/ip-filter-rules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ip-filter-rules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get is allowed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ip-filter-rules/allowed?sourceIp=193.0.0.1&destinationIp=192.0.0.1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ip-filter-rules",
+						"allowed"
+					],
+					"query": [
+						{
+							"key": "sourceIp",
+							"value": "193.0.0.1"
+						},
+						{
+							"key": "destinationIp",
+							"value": "192.0.0.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ip-filter-rules/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ip-filter-rules",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ip-filter-rules/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ip-filter-rules",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
