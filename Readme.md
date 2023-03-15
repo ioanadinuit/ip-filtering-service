@@ -53,9 +53,9 @@ Setup a local db connection to run the application
 4. java -jar target/ip_filter-service-1.0-RELEASE.jar
 
 ### Technical information
-1. Postgres was used becauseof the inet and cidr support it offers
-2. The application stores all the rules via CREATE but for filtering it uses a complex SQL Query
-3. Because of the ::inet refferences JPA has issues in mapping inpit variables such as :sourceIp and :destinationIp
-4. Instead an parsable by String.format(...) query is loaded and executed via a prepared statement
-5. Resolving at database level the filtering, makes the application capable of storing millions of rules whitound the need to access them to be able to filter
-6. Thus, is capable of high traffic with small pressure on memory and filtering performance
+1. Postgres was used because of the **inet** and **cidr** support it offers
+2. The application stores all the rules via CREATE, but for filtering it uses a complex SQL Query
+3. Because of the **::inet** and **::cidr** refferences JPA has issues in mapping input variables such as **:sourceIp** and **:destinationIp**
+4. Instead a parsable by String.format(...) query is loaded and executed via a prepared statement
+5. Resolving at database level the filtering, makes the application capable of storing millions of rules whitout the need to access them to be able to filter IPs
+6. Thus, it is capable of handling high traffic with small pressure on memory and code execution performance
